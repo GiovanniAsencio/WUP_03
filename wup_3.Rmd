@@ -36,9 +36,25 @@ basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='e
 ```
 
 ## Numerical Summarys 
-
+```{r}
+davisdata %>%
+ group_by(Seat) %>%
+ summarise(
+   Mean = mean(alcohol),
+   SD = sd(alcohol),
+   Count = n()
+ )
+``` 
+Students sitting in the back row appear to consume the most alcohol on average. Students sitting in the front row consume the least alcohol on average.
 ## Inferential Tests
+```{r}
+anova_model <- aov(alcohol ~ Seat, data=davisdata)
 
+summary(anova_model)
+```
+```{r}
+TukeyHSD(anova_model)
+```
 ## Conclusions
-
+The ANOVA test will determine whether there is evidence that average alcohol consumption differs among seating rows. TukeyHSD will identify which rows differ from one another.
 
