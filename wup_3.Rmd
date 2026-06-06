@@ -1,7 +1,7 @@
 ---
 title: "Alcohol vs Seat choice"
 author: "Giovanni Asencio"
-date: "Fall 2020"
+date: "Spring 2026"
 output: html_document
 ---
 
@@ -56,5 +56,11 @@ summary(anova_model)
 TukeyHSD(anova_model)
 ```
 ## Conclusions
-The ANOVA test will determine whether there is evidence that average alcohol consumption differs among seating rows. TukeyHSD will identify which rows differ from one another.
+The boxplots and numerical summaries suggest that students who sit in the back row consume more alcohol on average than students who sit in the front or middle rows. The mean alcohol consumption was 9.62 ounces per week for students in the back row, compared with 1.80 ounces in the front row and 3.28 ounces in the middle row.
+
+The ANOVA test produced a p-value of 0.000116. If there were truly no difference in average alcohol consumption among seating rows, there would be approximately a 0.0116% chance of observing differences this large due to random variation alone. Because this probability is extremely small, we reject the null hypothesis.
+
+The TukeyHSD follow-up test showed significant differences between the Back and Front rows (p = 0.0002933) and between the Back and Middle rows (p = 0.0004822). There was no significant difference between the Front and Middle rows (p = 0.6331).
+
+We conclude that students sitting in the back row consume significantly more alcohol than students sitting in the front or middle rows.
 
